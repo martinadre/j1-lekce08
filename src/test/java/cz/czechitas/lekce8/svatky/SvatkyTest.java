@@ -51,7 +51,7 @@ class SvatkyTest {
 
   @Test
   void zeny() {
-    assertEquals(276, svatky.muzi().count());
+    assertEquals(276, svatky.zeny().count());
   }
 
   @Test
@@ -117,7 +117,7 @@ class SvatkyTest {
 
   @Test
   void pocetUnikatnichJmen() {
-    assertEquals(543, svatky.pocetUnikatnichJmen());
+    assertEquals(541, svatky.pocetUnikatnichJmen());
   }
 
   @Test
@@ -167,7 +167,7 @@ class SvatkyTest {
     assertIterableEquals(
             Arrays.asList(
                     "Adam",
-                    "Eve",
+                    "Eva",
                     "Gaia",
                     "Kračun",
                     "Štěpán",

@@ -88,7 +88,7 @@ public class LosovaciZarizeni {
    */
   public void vypisTazenaCisla(IntStream vylosovanaCisla) {
     System.out.println("Dnešní vylosovaná čísla:");
-    vylosovanaCisla.forEachOrdered(this::vypisVylosovaneCislo);
+    vylosovanaCisla.forEachOrdered(cislo -> vypisVylosovaneCislo(cislo));
   }
 
   /**
