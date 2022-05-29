@@ -39,7 +39,7 @@ public class Svatky {
    */
   public Stream<Svatek> svatkyVMesici(Month mesic) {
     return seznamSvatku()
-            .filter(svatek -> svatek.getDen().getMonth() == mesic);
+            .filter(svatek -> svatek.getDen().getMonth().equals(mesic));
   }
 
   /**
@@ -62,7 +62,7 @@ public class Svatky {
   public Stream<String> muzi() {
     //TODO
     return seznamSvatku()
-            .filter(svatek -> svatek.getGender().equals(Gender.MUZ))
+            .filter(svatek -> svatek.getGender() == Gender.MUZ)
             .map(Svatek::getJmeno);
   }
 
@@ -156,10 +156,13 @@ public class Svatky {
    * @see Stream#dropWhile(java.util.function.Predicate)
    */
   public Stream<String> jmenaOdVanoc() {
+//    return seznamSvatku()
+//            .filter(svatek -> svatek.getDen().getMonth().equals(Month.DECEMBER) && svatek.getDen().getDayOfMonth() >= 24)
+//            .map(Svatek::getJmeno);
     return seznamSvatku()
-            .filter(svatek -> svatek.getDen().getMonth().equals(Month.DECEMBER) && svatek.getDen().getDayOfMonth() >= 24)
+            .filter(svatek -> svatek.getDen().isAfter(MonthDay.of(Month.DECEMBER, 23)))
             .map(Svatek::getJmeno);
-  }
+    }
 
   private static Svatek parseLine(String line) {
     String[] parts = line.split("\\s");
